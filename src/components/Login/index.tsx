@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 
 import { ContentHeading } from "../ContentHeading";
+import { Input } from "../Input";
 
 type FormDataProps = {
   username: string;
@@ -26,8 +27,13 @@ const Login = () => {
         <ContentHeading>
           <h2>Sign In</h2>
         </ContentHeading>
-        <form onSubmit={handleSubmit} data-testid="form">
-          <input
+        <form
+          onSubmit={handleSubmit}
+          data-testid="form"
+          style={{ position: "relative", width: "100%" }}
+        >
+          <Input
+            label="Username"
             type="text"
             aria-label="username"
             placeholder="username"
@@ -38,7 +44,8 @@ const Login = () => {
               setFormData({ ...formData, ...{ username: event.target.value } })
             }
           />
-          <input
+          <Input
+            label="Password"
             type="password"
             placeholder="password"
             aria-label="password"

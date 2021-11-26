@@ -1,9 +1,16 @@
 import * as S from "./Input.styles";
 
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
-export type InputProps = {};
+export type InputProps = {
+  label?: string;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-const Input = ({}: InputProps) => <S.Wrapper>Input</S.Wrapper>;
+const Input = ({ label, ...props }: InputProps) => (
+  <S.Wrapper>
+    {label && <S.Label htmlFor={label}>{label}</S.Label>}
+    <S.Input {...props} id={label} />
+  </S.Wrapper>
+);
 
 export { Input };
