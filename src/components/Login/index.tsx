@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 
+import { Checkbox } from "../Checkbox";
 import { ContentHeading } from "../ContentHeading";
 import { Input } from "../Input";
 
@@ -54,8 +55,8 @@ const Login = () => {
               setFormData({ ...formData, ...{ password: event.target.value } })
             }
           />
-          <input
-            type="checkbox"
+          <Checkbox
+            label="Remember Me"
             checked={formData.rememberMe}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
               setFormData({
